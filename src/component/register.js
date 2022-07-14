@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./register.css";
-import {useDispatch} from "react-redux";
-import {addRegData} from "../action/action"
+import { useDispatch } from "react-redux";
+import {addRegData} from "../action/action";
+
 
 
 function Register() {
@@ -10,13 +11,23 @@ const [email, setEmail] = useState("")
 const [password , setPassword] = useState("")
 const [address , setAddress] = useState("") 
 const dispatch = useDispatch();
+// console.log(name);
+// console.log(email);
+// console.log(password);
+// console.log(address);
+
+const submitData = (e) =>{
+  e.preventDefault()
+  dispatch(addRegData({name,email,password,address}))
+}
   return (
     <div className="regBackImage">
-      <form onSubmit={(e)=>dispatch(addRegData(e))}>
+       {/* <form onSubmit={()=>dispatch(addRegData(name,email,password,address))}>  */}
+        <form >      
         <div className="reg_form">
           <h1 className="regHeading">Register</h1>
-          <br />
-          <br />
+          <br/>
+          <br/>
 
           <label>
             <h2>Name</h2>
@@ -70,8 +81,9 @@ const dispatch = useDispatch();
           ></textarea>
           <br />
           <br />
-          <button className="btn btn-dark">Submit</button>
         </div>
+        {/* <button className="btn btn-dark">Submit</button> */}
+          <button className="btn btn-dark" onClick={(e)=>submitData(e)}>Submit</button>
       </form>
     </div>
   );
