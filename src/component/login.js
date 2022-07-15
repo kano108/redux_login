@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./login.css";
 function Login() {
+const getData = useSelector((state)=>state.ReLogReducer && state.ReLogReducer.list)
+console.log("getData",getData);
+
   return (
     <div className="regBackImage">
       <div className="reg_form">
