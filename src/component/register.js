@@ -11,14 +11,14 @@ const [email, setEmail] = useState("")
 const [password , setPassword] = useState("")
 const [address , setAddress] = useState("") 
 const dispatch = useDispatch();
-// console.log(name);
-// console.log(email);
-// console.log(password);
-// console.log(address);
 
 const submitData = (e) =>{
   e.preventDefault()
   dispatch(addRegData({name,email,password,address}))
+  setName("")
+  setEmail("")
+  setPassword("")
+  setAddress("")
 }
   return (
     <div className="regBackImage">
