@@ -11,7 +11,7 @@ const ReLogReducer = (state = initialData , action) =>{
         return {
             ...state,
             list:[
-                state.list,
+                ...state.list,
                  //...state.list,
                 {
                     Id,
@@ -22,15 +22,15 @@ const ReLogReducer = (state = initialData , action) =>{
                 }
             ]
         }
-        // case "ADD_LOGIN":
-        //     const data1= action.payload
-        //     console.log("action.payload",action.payload);
-        //     const login_sub = initialData.list.find((elem)=>elem.Email ===  data1.email && elem.Password === data1.password)
-        //     console.log("login_sub",login_sub)  
+        //case "ADD_LOGIN":
+            // const data1= action.payload
+            // console.log("action.payload",data1);
+            // const login_sub = initialData.list.find((elem)=>elem.Email ===  data1.email && elem.Password === data1.password)
+            // console.log("login_sub",login_sub)  
             
-        //     return{
+          //  return{
 
-        // }
+        //}
         default:return state
    }
 

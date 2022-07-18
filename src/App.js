@@ -1,14 +1,21 @@
-import './App.css';
-//import Login from './component/login';
-import Register from './component/register';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./component/login";
+import Register from "./component/register";
+import Navbar from "./component/Navbar";
+import Home from "./component/home";
 function App() {
   return (
-    <div className="App">
-      {/* <h1>Create Redux Login Page</h1> */}
-      <Register/>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      {/* <Login/> */}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={<Login />}/>
+          <Route path="/Register" element={<Register />}/>
+          <Route path="/home" element={<Home/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
