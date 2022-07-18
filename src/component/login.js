@@ -5,7 +5,7 @@ import "./login.css";
 //import {ComLogData} from "../action/action";
 
 
-function Login() {
+function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
@@ -19,7 +19,9 @@ function Login() {
     //console.log("fetch_data",fetch_data);
     if(fetch_data)
     {
-      navigate("/home")
+     props.setIsLogged(true)
+     localStorage.setItem("islogin", true)
+     navigate("/home")
     }
     else{
       alert("Please Enter Valid Email and Password")

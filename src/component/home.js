@@ -10,15 +10,17 @@ function Home() {
         return data.json();
       })
       .then((RightData) => {
-        setImage(RightData);
+          setImage(RightData);
       });
   }, []);
   return (
     <div className="image_box">
-      {image.map((elem) => {    
+        {
+        image.map((elem) => {    
             return <img className="per_image" src={elem.url}/>
         
-      })}
+        })
+      }
     </div>
   );
 }
