@@ -20,6 +20,7 @@ const submitData = (e) =>{
   setPassword("")
   setAddress("")
 }
+
   return (
     <div className="regBackImage">
        {/* <form onSubmit={()=>dispatch(addRegData(name,email,password,address))}>  */}

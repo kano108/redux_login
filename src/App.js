@@ -4,9 +4,8 @@ import Login from "./component/login";
 import Register from "./component/register";
 import Navbar from "./component/Navbar";
 import Home from "./component/home";
-import PrivateRoute from "./component/privateRoute";
+import  PrivateRoute from "./component/privateRoute";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 function App() {
 
   const [isLogged , setIsLogged] = useState(false)
@@ -28,9 +27,11 @@ function App() {
       <div className="App">
         <Navbar isLogged={isLogged} setIsLogged={setIsLogged}/>
         <Routes>
-          <Route path="/" element={<Login />}/>
+          <>
+          <Route path="/" element={<Login setIsLogged={setIsLogged}/>}/>
           <Route path="/Register" element={<Register />}/>
           <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>}/>
+          </>
         </Routes>
       </div>
     </BrowserRouter>

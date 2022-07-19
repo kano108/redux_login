@@ -1,34 +1,49 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+//import { useDispatch } from "react-redux";
+//import { CompareData } from "../action/action";
 import "./login.css";
 //import {ComLogData} from "../action/action";
 
 
-function Login(props) {
+
+const Login= (props) => {
+  console.log("props",props);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
-  const getData1 = useSelector((state)=>state.ReLogReducer && state.ReLogReducer.list)
   //console.log("getData1",getData1);
   const navigate = useNavigate()
+  
+  const getData1 = useSelector((state)=>state.ReLogReducer && state.ReLogReducer.list)
+  console.log("getData1",getData1);
 
-  const sub_ligin = (e) => {
+  const sub_ligin=(e) => {
     e.preventDefault();
-    const fetch_data=getData1.find((elem)=>elem.Email === email && elem.Password === password)
-    //console.log("fetch_data",fetch_data);
+    const fetch_data= getData1.find((elem)=>elem.Email === email && elem.Password === password)
+    
     if(fetch_data)
     {
-     props.setIsLogged(true)
-     localStorage.setItem("islogin", true)
-     navigate("/home")
+    props.setIsLogged(true)
+    localStorage.setItem("islogin", true)
+    navigate("/home")
     }
     else{
       alert("Please Enter Valid Email and Password")
     }
     setEmail("")
     setPassword("")
+    console.log("fetch_data",fetch_data);
   };
+
+// const dispatch = useDispatch()
+// const sub_ligin = (e) =>{
+  //     e.preventDefault()
+  //     dispatch(CompareData({email, password, navigate}))
+  //     setEmail("")
+//     setPassword("")
+// }
 
   return (
     <div className="regBackImage">
@@ -67,7 +82,7 @@ function Login(props) {
         />
         <br />
         <br />
-        <button className="btn btn-dark" onClick={(e) => sub_ligin(e)} type="button">
+        <button className="btn btn-dark" onClick={(e)=>sub_ligin(e)} type="button">
           Submit
         </button>
       </div>

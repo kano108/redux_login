@@ -1,5 +1,6 @@
 const initialData = {
-    list:[]
+    list:[],
+    // updatevalue : {}
 };
 
 const ReLogReducer = (state = initialData , action) =>{
@@ -7,30 +8,30 @@ const ReLogReducer = (state = initialData , action) =>{
         case "ADD_REG":
         console.log("action.payload",action.payload);
         console.log("state",state);
-        const {Id,Name ,Email,Password, Address}=action.payload;// id,name,email,password object banavo tene jagaye data laye to pan chale 
-        return {
-            ...state,
-            list:[
-                ...state.list,
-                 //...state.list,
-                {
-                    Id,
-                    Name,
-                    Email,
-                    Password,
-                    Address
-                }
-            ]
-        }
-        //case "ADD_LOGIN":
-            // const data1= action.payload
-            // console.log("action.payload",data1);
-            // const login_sub = initialData.list.find((elem)=>elem.Email ===  data1.email && elem.Password === data1.password)
-            // console.log("login_sub",login_sub)  
+        const data =action.payload;// id,name,email,password object banavo tene jagaye data laye to pan chale 
+        console.log("data",data);
+        // return {
+        //     ...state.list,
+        //     list:[
+        //         ...state.list,data
+        //     ]
+        // }
+        return{
+            ...state.list,
+                list:[...state.list,data]
             
-          //  return{
+        }
 
-        //}
+        // case "COMPAREDATA":
+     
+        //     // const comdata = action.payload
+        //     // console.log("comdata",comdata);
+        // const comData = state.list.find((elem)=>elem.email === action.Eamil && elem.password === action.Password)
+        // console.log("comData",comData); 
+        // return{
+        //     ...state,
+        //     updatevalue:comData
+        //     }
         default:return state
    }
 

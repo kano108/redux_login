@@ -1,29 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+//import { useState } from "react";
 
 const Navbar = (props)=> {
 const {isLogged , setIsLogged} = props
-
+console.log("propsNavbar",props);
   const logout = () =>{
     setIsLogged(false)
-      localStorage.setItem("islogin" , false)
+    localStorage.setItem("islogin" , false)
   };
 
 
-
+  
   return (
     <div >
       <ul>
+        
         {
-          !isLogged ? 
-          (        
-          <li>
-            <NavLink to="/" onClick={logout}>Logout</NavLink>
-          </li>
-          ):
+          !isLogged ?
           (        
           <li>
             <NavLink to="/">login</NavLink>
+          </li>
+          ):
+          (        
+            <li>
+            <NavLink to="/" onClick={logout}>Logout</NavLink>
           </li>
           ) 
         }

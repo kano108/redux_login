@@ -15,6 +15,7 @@ function Home() {
   }, []);
   return (
     <div className="image_box">
+    <h1>this is home page </h1>
         {
         image.map((elem) => {    
             return <img className="per_image" src={elem.url}/>

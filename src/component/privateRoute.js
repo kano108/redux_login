@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {useNavigate} from "react-router-dom"
 
-function PrivateRoute({Children}) {
+function PrivateRoute({children}) {
 const [isLogged , setIsLogged]= useState(true)
 const navigate = useNavigate()
 
-const login = JSON.parse(localStorage.getItem("islogin"))
 useEffect(()=>{
- // console.log("login",login);
+  // console.log("login",login);
+  let login = JSON.parse(localStorage.getItem("islogin"))
   if(login)
   { 
     setIsLogged(true)
@@ -23,7 +23,7 @@ if(!isLogged)
     return navigate("/") 
 }
 else{
-    return  Children
+    return  children
 }
 
 };
